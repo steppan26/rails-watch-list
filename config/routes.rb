@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#home'
-  resources :lists, only: [:index, :show, :new, :create] do
+  resources :lists do
     resources :bookmarks, only: [:new, :create]
   end
   resources :bookmarks, only: [:show, :destroy, :edit, :update]

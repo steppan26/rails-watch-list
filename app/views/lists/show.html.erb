@@ -4,44 +4,51 @@
       <h1><strong><%= @list.name %></strong>!</h1>
     </div>
   </div>
+  <% else %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= image_url ("movie_projector.jpg"), crop: :fill %>');">
+    <div class="container">
+      <h1><strong><%= @list.name %></strong>!</h1>
+    </div>
+  </div>
   <% end %>
 <div class="p-3" data-controller='toggle-menu'>
   <div class="container">
-    <% if !@list.image.key %>
-      <h3 class="my-5"><%= @list.name %></h3>
-    <% end %>
     <div class="d-flex justify-content-between align-items-end">
       <%= link_to lists_path, class: "btn btn-outline-secondary btn-small" do %>
         <p class="m-0"><i class="fas fa-undo-alt"></i> BACK</p>
       <% end %>
       <i class="far fa-plus-square togglable-menu-icon" data-action='click->toggle-menu#toggle_form_menu' data-toggle-menu-target="menu_icon"></i>
     </div>
-    <div class="d-flex">
+    <div class="d-flex mt-1">
       <ul class="list-group mb-3 flex-grow-1 scrollable-list">
-        <% @bookmarks.each do |bookmark| %>
-          <li class="list-group-item list-group-item-action my-2">
-            <div class="text-end">
-              <%= link_to edit_bookmark_path(bookmark) do %>
-                <i class="far fa-edit"></i>
-              <% end %>
-              <%= link_to bookmark_path(bookmark), method: :delete do %>
-                <i class="fas fa-trash-alt custom-icon"></i>
-              <% end %>
-            </div>
-            <%= link_to bookmark_path(bookmark) do %>
-              <div class="card-product my-2">
-                <img src=<%= bookmark.movie.poster_url %> />
-                  <div class="card-product-infos">
-                    <h2><%= bookmark.movie.title %></h2>
-                    <p><%= bookmark.comment %></p>
-                  </div>
+        <% if @bookmarks.empty? %>
+          <li class="list-group-item"><strong><span data-action='click->toggle-menu#toggle_form_menu'>Add a movie</span></strong> to start filling out your list</li>
+        <% else %>
+          <% @bookmarks.each do |bookmark| %>
+            <li class="list-group-item list-group-item-action my-2">
+              <div class="text-end">
+                <%= link_to edit_bookmark_path(bookmark) do %>
+                  <i class="far fa-edit"></i>
+                <% end %>
+                <%= link_to bookmark_path(bookmark), method: :delete do %>
+                  <i class="fas fa-trash-alt custom-icon"></i>
+                <% end %>
               </div>
-            <% end %>
-          </li>
+              <%= link_to bookmark_path(bookmark) do %>
+                <div class="card-product my-2">
+                  <img src=<%= bookmark.movie.poster_url %> />
+                    <div class="card-product-infos">
+                      <h2><%= bookmark.movie.title %></h2>
+                      <p><%= bookmark.comment %></p>
+                    </div>
+                </div>
+              <% end %>
+            </li>
+          <% end %>
         <% end %>
       </ul>
 
-      <div data-toggle-menu-target="new_movie_form" class="togglable-menu" data-state="open">
+      <div data-toggle-menu-target="new_movie_form" class="togglable-menu" data-state="closed">
         <%= simple_form_for([@list, @bookmark]) do |f| %>
           <%= f.association :movie, html_input: { class: 'select2', data_controller: "select2" } %>
           <%= f.input :comment %>

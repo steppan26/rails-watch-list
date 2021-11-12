@@ -9,4 +9,4 @@ import * as ActiveStorage from "@rails/activestorage"
 import "bootstrap";
 import "channels"
 import "controllers"
-import "select2"
+// import "select2"

@@ -1,21 +1,29 @@
 <div class="container">
-  <h2 class="my-5">A list of lists</h2>
+  <h2 class="my-5">List of Movies</h2>
   <%= link_to new_list_path do %>
     <p class="m-0 text-end"><i class="far fa-plus-square"></i> Add a list</p>
   <% end %>
   <ul class="cards mt-1">
     <% @lists.each do |list| %>
-      <%= link_to list_path(list) do %>
-        <li>
-          <% if list.image.key %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.image.key, crop: :fill %>')">
-          <% else %>
-            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_url ("movie_projector.jpg"), crop: :fill %>')">
+      <li>
+        <%= link_to list_path(list) do %>
+            <% if list.image.key %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.image.key, crop: :fill %>')">
+            <% else %>
+              <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_url ("movie_projector.jpg"), crop: :fill %>')">
+            <% end %>
+              <%= list.name %>
+            </div>
+        <% end %>
+        <div class="d-flex justify-content-end mb-2 card-category-menu">
+          <%= link_to edit_list_path(list) do %>
+            <i class="far fa-edit"></i>
           <% end %>
-            <%= list.name %>
-          </div>
-        </li>
-      <% end %>
+          <%= button_to list_path(list), method: :delete, data: {confirm: "Are you sure?"}, class: "delete-btn ms-2" do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        </div>
+      </li>
     <% end %>
   </ul>
 </div>
