@@ -9,7 +9,6 @@ export default class extends Controller {
   toggle_form_menu() {
     const newMovieMenu = this.new_movie_formTarget;
     const menuIcon = this.menu_iconTarget;
-    console.log(menuIcon)
     if (newMovieMenu.dataset.state == 'open') {
       newMovieMenu.style.width = "";
       newMovieMenu.dataset.state = "closed";
