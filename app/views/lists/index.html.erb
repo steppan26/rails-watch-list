@@ -19,7 +19,7 @@
           <%= link_to edit_list_path(list) do %>
             <i class="far fa-edit"></i>
           <% end %>
-          <%= button_to list_path(list), method: :delete, data: {confirm: "Are you sure?"}, class: "delete-btn ms-2" do %>
+          <%= button_to list_path(list), method: :delete, class: "delete-btn" do %>
             <i class="far fa-trash-alt"></i>
           <% end %>
         </div>

@@ -1,4 +1,4 @@
-<% if @list.image.key %>
+<% if @list.image.nil? %>
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.image.key, crop: :fill %>');">
     <div class="container">
       <h1><strong><%= @list.name %></strong>!</h1>
@@ -30,7 +30,7 @@
                 <%= link_to edit_bookmark_path(bookmark) do %>
                   <i class="far fa-edit"></i>
                 <% end %>
-                <%= link_to bookmark_path(bookmark), method: :delete do %>
+                <%= button_to bookmark_path(bookmark), method: :delete, class: "delete-btn" do %>
                   <i class="fas fa-trash-alt custom-icon"></i>
                 <% end %>
               </div>

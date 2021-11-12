@@ -6,7 +6,9 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
-import "bootstrap";
+// import "bootstrap";
 import "channels"
 import "controllers"
-// import "select2"
+import "select2"
+import "jquery"
+import "jquery_ujs"

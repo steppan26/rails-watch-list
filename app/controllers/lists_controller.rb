@@ -29,8 +29,8 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    raise
     @list.destroy
+    redirect_to lists_path
   end
 
   private
