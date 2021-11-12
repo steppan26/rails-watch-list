@@ -27,6 +27,7 @@ gem "simple_form"
 gem 'faker'
 gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 gem 'stimulus-rails'
+gem 'cloudinary', '~> 1.16.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
