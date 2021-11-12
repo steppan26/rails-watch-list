@@ -1,6 +1,15 @@
+<% if @list.image.key %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.image.key, crop: :fill %>');">
+    <div class="container">
+      <h1><strong><%= @list.name %></strong>!</h1>
+    </div>
+  </div>
+  <% end %>
 <div class="p-3" data-controller='toggle-menu'>
   <div class="container">
-    <h3 class="my-5"><%= @list.name %></h3>
+    <% if !@list.image.key %>
+      <h3 class="my-5"><%= @list.name %></h3>
+    <% end %>
     <div class="d-flex justify-content-between align-items-end">
       <%= link_to lists_path, class: "btn btn-outline-secondary btn-small" do %>
         <p class="m-0"><i class="fas fa-undo-alt"></i> BACK</p>

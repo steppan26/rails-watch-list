@@ -1,0 +1,5 @@
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.input :name, label: "List Name:" %>
+    <%= f.input :image, as: :file %>
+    <%= f.submit "Create new list" %>
+  <% end %>

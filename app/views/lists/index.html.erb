@@ -3,13 +3,16 @@
   <%= link_to new_list_path do %>
     <p class="m-0 text-end"><i class="far fa-plus-square"></i> Add a list</p>
   <% end %>
-  <ul class="list-group mt-1">
+  <ul class="cards mt-1">
     <% @lists.each do |list| %>
       <%= link_to list_path(list) do %>
-        <li class="list-group-item list-group-item-action">
-          <div class="card card-body bg-light bg-gradient">
-            <h4 class="card-title"><%= list.name %></h4>
-            <p class="card-text"></p>
+        <li>
+          <% if list.image.key %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.image.key, crop: :fill %>')">
+          <% else %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_url ("movie_projector.jpg"), crop: :fill %>')">
+          <% end %>
+            <%= list.name %>
           </div>
         </li>
       <% end %>

@@ -1,7 +1,4 @@
 <div class="container">
-  <%= simple_form_for(@list) do |f| %>
-    <%= f.input :name, label: "List Name:" %>
-    <%= f.submit "Create new list" %>
-  <% end %>
+  <%= render "form" %>
   <%= link_to "back", lists_path %>
 </div>
