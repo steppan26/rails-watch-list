@@ -1,0 +1,18 @@
+<div class="container">
+  <h2 class="my-5">A list of lists</h2>
+  <%= link_to new_list_path do %>
+    <p class="m-0 text-end"><i class="far fa-plus-square"></i> Add a list</p>
+  <% end %>
+  <ul class="list-group mt-1">
+    <% @lists.each do |list| %>
+      <%= link_to list_path(list) do %>
+        <li class="list-group-item list-group-item-action">
+          <div class="card card-body bg-light bg-gradient">
+            <h4 class="card-title"><%= list.name %></h4>
+            <p class="card-text"></p>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

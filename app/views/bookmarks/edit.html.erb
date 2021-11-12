@@ -1,0 +1,7 @@
+<div class="container">
+  <h1><%= @bookmark.movie.title %></h1>
+  <%= simple_form_for @bookmark do |f| %>
+    <%= f.input :comment %>
+    <%= f.submit "Save changes" %>
+  <% end %>
+</div>

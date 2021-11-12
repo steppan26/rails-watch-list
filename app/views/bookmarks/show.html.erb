@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="d-flex justify-content-center align-items-start mt-3">
+
+    <%= link_to "BACK", list_path(@bookmark.list_id), class: "btn btn-outline-secondary me-1" %>
+    <div class="card">
+      <img src="<%= @bookmark.movie.poster_url %>" alt="" class="card-img">
+      <div class="hover-wrapper">
+        <div class="card-body card-top-white">
+          <h2 class="card-title"><%= @bookmark.movie.title %></h2>
+          <h6 class="card-subtitle text-muted">Average rating: <%= @bookmark.movie.rating %> / 5</h6>
+          <hr>
+          <p class="card-text"><%= @bookmark.movie.overview %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

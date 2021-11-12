@@ -25,6 +25,9 @@ gem "autoprefixer-rails", "10.2.5"
 gem "font-awesome-sass", "~> 5.12.0"
 gem "simple_form"
 gem 'faker'
+gem 'select2-rails', '~> 4.0', '>= 4.0.3'
+gem 'stimulus-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
