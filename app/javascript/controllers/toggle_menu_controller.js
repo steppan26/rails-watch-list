@@ -15,7 +15,7 @@ export default class extends Controller {
       newMovieMenu.dataset.state = "closed";
       menuIcon.className = "far fa-plus-square togglable-menu-icon";
     } else {
-      newMovieMenu.style.width = "66%";
+      newMovieMenu.style.width = "40%";
       newMovieMenu.dataset.state = "open"
       menuIcon.className = "far fa-minus-square togglable-menu-icon";
     }
